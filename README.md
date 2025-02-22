@@ -11,7 +11,6 @@ import numpy as np        # Numerical computations
 import pandas as pd       # Data handling and analysis
 import matplotlib.pyplot as plt  # Data visualization
 import seaborn as sns     # Advanced visualizations
-🔹 Why? These libraries help in handling data, performing calculations, and creating visualizations.
 
 2️⃣ Loading the Dataset
 We load the dataset using Pandas:
@@ -21,7 +20,6 @@ Copy
 Edit
 df = pd.read_csv("Superstore.csv", encoding="ISO-8859-1")
 df.head()  # Display the first few rows
-🔹 Why?
 
 pd.read_csv() loads the dataset.
 df.head() helps understand its structure.
@@ -30,7 +28,6 @@ python
 Copy
 Edit
 df.isnull().sum()
-🔹 Why?
 This checks if any columns contain missing values. If found, we decide whether to fill or drop them.
 
 4️⃣ Understanding Data Structure
@@ -39,7 +36,6 @@ Copy
 Edit
 df.info()  # Shows column names, data types, and non-null values
 df.describe()  # Provides statistical summary
-🔹 Why?
 
 df.info() helps in understanding the data types (e.g., numerical, categorical).
 df.describe() provides summary statistics (mean, min, max, etc.).
@@ -54,7 +50,6 @@ python
 Copy
 Edit
 df.fillna(method='ffill', inplace=True)  # Forward fill missing values
-🔹 Why?
 Ensures data is clean and reliable for analysis.
 
 6️⃣ Exploratory Data Analysis (EDA)
@@ -68,7 +63,6 @@ plt.figure(figsize=(8,5))
 sns.histplot(df["Sales"], bins=30, kde=True)
 plt.title("Sales Distribution")
 plt.show()
-🔹 Why?
 
 Helps visualize the spread of sales.
 kde=True adds a density curve for better understanding.
@@ -80,7 +74,6 @@ plt.figure(figsize=(8,5))
 sns.scatterplot(x=df["Sales"], y=df["Profit"])
 plt.title("Profit vs Sales Relationship")
 plt.show()
-🔹 Why?
 
 Identifies the correlation between sales and profit.
 Helps spot outliers (e.g., high sales but negative profit).
@@ -92,7 +85,6 @@ plt.figure(figsize=(8,5))
 sns.barplot(x="Category", y="Sales", data=df)
 plt.title("Sales by Category")
 plt.show()
-🔹 Why?
 Shows which product category contributes the most to sales.
 
 📌 D. Top 10 Cities with Highest Sales
@@ -102,7 +94,6 @@ Edit
 top_cities = df.groupby("City")["Sales"].sum().sort_values(ascending=False).head(10)
 top_cities.plot(kind="bar", figsize=(10,5), title="Top 10 Cities by Sales")
 plt.show()
-🔹 Why?
 Finds cities with highest sales, useful for business expansion strategies.
 
 📌 E. Profitability Across Regions
@@ -113,7 +104,6 @@ plt.figure(figsize=(8,5))
 sns.boxplot(x="Region", y="Profit", data=df)
 plt.title("Profit Distribution Across Regions")
 plt.show()
-🔹 Why?
 
 Identifies most profitable regions.
 Boxplots help detect outliers (e.g., regions with negative profit).
